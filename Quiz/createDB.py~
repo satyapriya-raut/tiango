@@ -1,0 +1,77 @@
+import sqlite3
+
+conn = sqlite3.connect('Tiango.sqlite')
+cur = conn.cursor()
+
+# Make some fresh tables using executescript()
+cur.executescript('''
+DROP TABLE IF EXISTS User;
+DROP TABLE IF EXISTS Cplusplus;
+DROP TABLE IF EXISTS Java;
+DROP TABLE IF EXISTS Python;
+DROP TABLE IF EXISTS MySQL;
+DROP TABLE IF EXISTS JavaScript;
+DROP TABLE IF EXISTS Aptitude;
+
+CREATE TABLE User (
+    id  INTEGER NOT NULL PRIMARY KEY UNIQUE,
+    name    TEXT,
+    password TEXT
+);
+
+CREATE TABLE Cplusplus (
+	question TEXT,
+	option1 TEXT,
+	option2 TEXT,
+	option3 TEXT,
+	option4 TEXT,
+	answer TEXT
+);
+
+CREATE TABLE Java (
+	question TEXT,
+	option1 TEXT,
+	option2 TEXT,
+	option3 TEXT,
+	option4 TEXT,
+	answer TEXT
+);
+
+CREATE TABLE Python (
+	question TEXT,
+	option1 TEXT,
+	option2 TEXT,
+	option3 TEXT,
+	option4 TEXT,
+	answer TEXT
+);
+
+CREATE TABLE MySQL (
+	question TEXT,
+	option1 TEXT,
+	option2 TEXT,
+	option3 TEXT,
+	option4 TEXT,
+	answer TEXT
+);
+
+CREATE TABLE JavaScript (
+	question TEXT,
+	option1 TEXT,
+	option2 TEXT,
+	option3 TEXT,
+	option4 TEXT,
+	answer TEXT
+);
+
+CREATE TABLE Aptitude (
+	question TEXT,
+	option1 TEXT,
+	option2 TEXT,
+	option3 TEXT,
+	option4 TEXT,
+	answer TEXT
+);
+
+''')
+
