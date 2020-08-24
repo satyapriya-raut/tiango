@@ -35,5 +35,3 @@ Solve quiz and move up the leaderboard!
     
 ### app.py:
     This python file defines the core logic of the application.
-  
->>>>>>> e2888aa47de9662620b8363fa2b6e71205b136a6
