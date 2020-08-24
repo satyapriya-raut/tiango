@@ -1,4 +1,4 @@
-> Quiz app accessible at [Tiango](satyapriya.pythonanywhere.com)
+> Quiz app accessible at [Tiango](http://satyapriya.pythonanywhere.com)
 
 ### Tiango
 A Quiz Web App using Python Flask, Jinja2 and HTML/CSS. 
