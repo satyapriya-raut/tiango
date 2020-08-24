@@ -10,7 +10,7 @@ body {
 }
 
 #table2 {
-  margin-left: auto;
+	margin-left: auto;
   margin-right: auto;
   border-collapse: separate;
   border-spacing: 50px 40px;
@@ -62,7 +62,7 @@ body {
 
 .quiz-card:hover img {
   
-    width: 120px;
+  width: 120px;
 	height: 120px;
 }
 

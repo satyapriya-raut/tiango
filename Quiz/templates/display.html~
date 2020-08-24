@@ -1,0 +1,80 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Instructions</title>
+		<!-- <link href="../static/css/allQuiz.css" rel="stylesheet"> -->
+		 <link rel="stylesheet" href="{{ url_for('static', filename='css/allQuiz.css') }}"> 
+		 
+<style>
+.leaderboard {
+  width: 200px;
+  height: 100px;
+  padding: 30px 20px;
+  background-color: white;
+  text-align: center;
+  border-radius: 10px 10px 10px 10px;
+  margin: 20px 20px 20px 20px
+  box-shadow: 10px 10px red;
+  margin-left: auto;
+  margin-right: auto;
+  border-collapse: separate;
+  border-spacing: 50px 40px;
+}
+
+#table2 {
+  padding: 5px 5px;
+  background-color: white;
+  text-align: center;
+  border-radius: 10px 10px 10px 10px;
+  margin: 10px 10px 10px 10px
+  margin-left: auto;
+  margin-right: auto;
+  
+}
+
+h3 {
+	color: rgba(0,0,0,.7);
+  font-weight: 900;
+  font-size: 1.5em;
+  margin: 50px 0 40px 0;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+</style>
+	</head>
+	
+	<body>
+	
+	<div id="container">
+		<form action="{{ url_for('logout') }}" >
+			<input class="logout" type="submit" value="Logout" />
+			</form>
+			
+			<form action="{{ url_for('allQuizes') }}" method="POST">
+			<input class="back" type="submit" value="Back"/> 
+			</form>
+			<h1 align="center"> Your score is {{ score }} </h1>
+			<hr>
+			<div>
+				<h3 align="center">Leaderboard</h3>
+				<table id="table2">
+					<tr>
+						<th>Rank</th>
+						<th>User ID</th>
+						<th>Score</th>
+					</tr>
+					{% set rank = namespace(value=1) %}
+					{% for score in scores %}
+					<tr>
+						<td>{{rank.value}}</td>
+						<td>{{score[0]}}</td>
+						<td>{{score[1]}}</td>
+					</tr>
+					{% set rank.value = rank.value + 1 %}
+					{% endfor %}
+				</table>
+			</div>
+	</div>
+	</body>
+</html>

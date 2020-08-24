@@ -1,0 +1,30 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Aptitude Quiz</title>
+		<link href="../static/css/allQuiz.css" rel="stylesheet"> 
+		<!-- <link rel="stylesheet" href="{{ url_for('static', filename='css/login.css') }}"> -->
+	</head>
+	
+	<body>
+	
+	<div id="container">
+		<form action="app.py" method="POST">
+			<!--
+				cur = con.cursor()
+				cur.execute("SELECT * FROM dataset")
+				data = cur.fetchall()
+				render_template('template.html', data=data)
+			-->
+			{% for question in questions %}
+			<tr>
+				{{ question[0] }}
+			</tr>
+			{% endfor %}
+			
+		<input type="button" value="Submit">
+		</form>
+		
+	</div>
+	</body>
+</html>

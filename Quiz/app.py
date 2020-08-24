@@ -1,10 +1,8 @@
 from flask import Flask, render_template, request, session, redirect, flash, url_for
 import sqlite3 as db
-from flask_bootstrap import Bootstrap
 
 
 app = Flask(__name__)
-Bootstrap(app)
 
 app.secret_key = '_5#y2L"F4Q8z\n\xec]/'
 
@@ -25,24 +23,24 @@ def validate():
 	id = request.form.get("userID")
 	password = request.form.get("pwd")
 	try:
-		with db.connect("/home/satyapriya/mysite/Database/Tiango.sqlite") as conn:
+		with db.connect("Database/Tiango.sqlite") as conn:
 			cur = conn.cursor()
 			cur.execute("SELECT id, password FROM User WHERE id = ?", (id,));
 			row = cur.fetchone();
 			cur.close()
 			if row is None:
-				flash("Invalid username or password", "danger")	# Display message to invalid user.
+				flash("Invalid username or password")	# Display message to invalid user.
 				return redirect(url_for("index"))
 			elif (row[0] == id and row[1] == password):
 				session["id"] = id
 				session["logged_in"] = True
 				return redirect(url_for("allQuizes"));
 			else:
-				flash("Invalid username or password", "danger")	# Display message to invalid user.
+				flash("Invalid username or password")	# Display message to invalid user.
 				return redirect(url_for("index"))
 				
 	except:
-		flash("Invalid!", "danger")
+		flash("Invalid!")
 		return redirect(url_for("index"))
 	
 # from Registration Page, it will be redirected to check if user already exists
@@ -52,7 +50,7 @@ def signupValidate():
 	user = request.form.get("uname")
 	password = request.form.get("pwd")
 	try:
-		with db.connect("/home/satyapriya/mysite/Database/Tiango.sqlite") as conn:
+		with db.connect("Database/Tiango.sqlite") as conn:
 			cur = conn.cursor()
 			cur.execute("SELECT id FROM User WHERE id = ?", (id,));
 			row = cur.fetchone();
@@ -90,7 +88,7 @@ def check():
 		session["quizName"] = quizName
 		attemptTable = quizName + "Attempted"	# concat "Attempted" word, because thats how I have named the table
 		try:
-			with db.connect("/home/satyapriya/mysite/Database/Tiango.sqlite") as con:
+			with db.connect("Database/Tiango.sqlite") as con:
 				cur = con.cursor()
 				query = "SELECT id FROM {} WHERE id = ?".format(attemptTable)
 				cur.execute(query, (id,));
@@ -120,7 +118,7 @@ def instructions():
 def questions():
 	quizName = session["quizName"]
 	try:
-		with db.connect("/home/satyapriya/mysite/Database/Tiango.sqlite") as conn:
+		with db.connect("Database/Tiango.sqlite") as conn:
 			cur = conn.cursor();
 			query = "SELECT * FROM {}".format(quizName)
 			cur.execute(query);
@@ -139,16 +137,14 @@ def calculate():
 	scoreTable = session["quizName"] + "Score"
 	quiz = session["quizName"]
 	try:
-		with db.connect("/home/satyapriya/mysite/Database/Tiango.sqlite") as conn:
+		with db.connect("Database/Tiango.sqlite") as conn:
 			cur = conn.cursor();
 			query = "SELECT answer FROM {}".format(quiz)
 			cur.execute(query);
 			rows = cur.fetchall()
 			score = 0
-			for i in range(10):		# 10 questions
+			for i in range(4):
 				score += 1 if request.form.get(str(i+1)) == rows[i][0] else 0
-			if quiz == "Aptitude":		#Apti has 10 questions 2 marks each
-				score *= 2
 			query = "INSERT INTO {} VALUES (?, ?)".format(attemptTable)
 			cur.execute(query, (id, 1));
 			query = "INSERT INTO {} VALUES (?, ?)".format(scoreTable)
@@ -166,7 +162,7 @@ def display():
 		id = session["id"]
 		scoreTable = session["quizName"] + "Score"	# concat "Score" word because thats how I have named the table
 		try:
-			with db.connect("/home/satyapriya/mysite/Database/Tiango.sqlite") as conn:
+			with db.connect("Database/Tiango.sqlite") as conn:
 				cur = conn.cursor();
 				query = "SELECT * FROM {} WHERE id = ?".format(scoreTable)
 				cur.execute(query, (id,))

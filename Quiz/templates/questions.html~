@@ -1,0 +1,57 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Quiz Questions</title>
+		<!-- <link href="../static/css/allQuiz.css" rel="stylesheet"> -->
+		 <link rel="stylesheet" href="{{ url_for('static', filename='css/allQuiz.css') }}"> 
+	</head>
+	
+	<body>
+	
+	<div id="container">
+		<form action="{{ url_for('calculate') }}" method="POST">
+			<h1> {{ quizName }} Quiz</h1>
+			<hr>
+			<table>
+			<ol>
+			{% set count = namespace(value=1) %}
+			{% for question in questions %}
+			<tr>
+				<td>
+				<li> {{ question[0] }} <li>
+				</td>
+			</tr>
+			
+			<tr>
+				<td>
+					<input type="radio" name="{{ count.value }}" value="{{ question[1] }}"> {{ question[1] }}
+				</td>
+			</tr>
+			
+			<tr>
+				<td>
+					<input type="radio" name="{{ count.value }}" value="{{ question[2] }}"> {{ question[2] }}
+				</td>
+			</tr>
+			
+			<tr>
+				<td>
+					<input type="radio" name="{{ count.value }}" value="{{ question[3] }}"> {{ question[3] }}
+				</td>
+			</tr>
+			
+			<tr>
+				<td>
+					<input type="radio" name="{{ count.value }}" value="{{ question[4] }}"> {{ question[4] }}
+				</td>
+			</tr>
+			{% set count.value = count.value + 1 %}
+			{% endfor %}
+			</ol>
+			</table>
+			<input type="submit" value="Submit">
+		</form>
+		
+	</div>
+	</body>
+</html>
