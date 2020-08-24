@@ -1,8 +1,10 @@
 from flask import Flask, render_template, request, session, redirect, flash, url_for
 import sqlite3 as db
+from flask_bootstrap import Bootstrap
 
 
 app = Flask(__name__)
+Bootstrap(app)
 
 app.secret_key = '_5#y2L"F4Q8z\n\xec]/'
 
@@ -29,18 +31,18 @@ def validate():
 			row = cur.fetchone();
 			cur.close()
 			if row is None:
-				flash("Invalid username or password")	# Display message to invalid user.
+				flash("Invalid username or password", "danger")	# Display message to invalid user.
 				return redirect(url_for("index"))
 			elif (row[0] == id and row[1] == password):
 				session["id"] = id
 				session["logged_in"] = True
 				return redirect(url_for("allQuizes"));
 			else:
-				flash("Invalid username or password")	# Display message to invalid user.
+				flash("Invalid username or password", "danger")	# Display message to invalid user.
 				return redirect(url_for("index"))
 				
 	except:
-		flash("Invalid!")
+		flash("Invalid!", "danger")
 		return redirect(url_for("index"))
 	
 # from Registration Page, it will be redirected to check if user already exists
