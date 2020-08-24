@@ -55,7 +55,7 @@ INSERT INTO Python VALUES("Suppose list1 is [1, 3, 2], What is list1 * 2 ?", "[2
 INSERT INTO Python VALUES("What is the output of this expression, 3*1**3?", "27", "9", "3", "1", "3"); 
 INSERT INTO Python VALUES("What is the dataype of L? L = [1, 23, ‘hello’, 1].", "List", "Dict", "Array", "Tuple", "List"); 
 INSERT INTO Python VALUES("What is the result of round(0.5) - round(-0.5)?", "0", "1", "2", "None of these", "0"); 
-INSERT INTO Python VALUES("Which of these in not a core datatype?", "List", "Tuple", "Class", "Dict", "Class"); 
+INSERT INTO Python VALUES("Which of these is not a core datatype?", "List", "Tuple", "Class", "Dict", "Class"); 
 INSERT INTO Python VALUES("All keywords in Python are in", "lower case", "UPPER CASE", "Capitalized", "None of the above", "None of the above"); 
 INSERT INTO Python VALUES("Which of the following statements is used to create an empty set?", "{}", "[]", "()", "set()", "set()"); 
 INSERT INTO Python VALUES("Which of the following lines of code will result in an error?", "s={abs}", "s={4, ‘abc’, (1,2)}", "s={2, 2.2, 3, ‘xyz’}", "s={san}", "s={san}"); 
