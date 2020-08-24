@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-# tiango
-A quiz web app using Flask
-=======
 > Quiz app accessible at [Tiango](http://satyapriya.pythonanywhere.com)
 
 ### Tiango
