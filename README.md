@@ -31,6 +31,6 @@ Solve quiz and move up the leaderboard!
 ### 3. templates:
     This folder has several html files which define the layout of the web page.
     
-### 4. app.py:
+### app.py:
     This python file defines the core logic of the application.
   
