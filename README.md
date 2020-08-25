@@ -23,7 +23,8 @@ Solve quiz and move up the leaderboard!
     This folder consists of:
     - createDB.py : which defines the schema of all the tables in database.
     - run.py : defines queries to insert data into tables.
-    - Tiango.sqlite : Sqlite database to store all the Quiz data
+    - alterDB.py : defines some additional tables
+> First run createDB.py then run.py then alterDB.py
     
 ### 2. static:
     This folder consists of:
