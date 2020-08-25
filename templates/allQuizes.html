@@ -3,7 +3,8 @@
 	<head>
 		<title>Quizzes</title>
 		<!-- <link href="../static/css/allQuiz.css" rel="stylesheet"> -->
-		 <link rel="stylesheet" href="{{ url_for('static', filename='css/allQuiz.css') }}"> 
+		 <link rel="stylesheet" href="{{ url_for('static', filename='css/allQuiz.css') }}">
+		 <link rel="icon" href="{{ url_for('static', filename='images/tiango.png') }}" type="image" sizes="20x20">
 	</head>
 <style>
 h3{
@@ -11,7 +12,7 @@ h3{
 }
 </style>
 	<body>
-	
+
 	<div id="container">
 		<div class="welcome">
 			<h1 align="center"> Welcome {{ name }} </h1>
@@ -26,49 +27,49 @@ h3{
 				<td>
 					<div class="quiz-card">
 						<a href="{{ url_for('check', type='Cplusplus') }}">
-						<img src="../static/images/c++.png" alt="C++" name="cpp">
+						<img src="../static/images/c++.png" alt="C++" name="cpp" title="CPP Quiz">
 						</a>
 					</div>
 				</td>
-				
+
 				<td>
 					<div class="quiz-card">
 						<a href="{{ url_for('check', type='Java') }}">
-						<img src="../static/images/java.jpeg" alt="JAVA" name="java">
+						<img src="../static/images/java.png" alt="JAVA" name="java" title="JAVA Quiz">
 						</a>
 					</div>
 				</td>
-				
+
 				<td>
 					<div class="quiz-card">
 						<a href="{{ url_for('check', type='Python') }}">
-						<img src="../static/images/python.jpeg" alt="Python" name="python">
+						<img src="../static/images/python.jpeg" alt="Python" name="python" title="Python Quiz">
 						</a>
 					</div>
 				</td>
 			</tr>
-			
+
 			<tr>
 				<td>
 					<div class="quiz-card">
 						<a href="{{ url_for('check', type='MySQL') }}">
-						<img src="../static/images/mysql.png" alt="MySQL" name="mysql">
+						<img src="../static/images/mysql.png" alt="MySQL" name="mysql" title="MySQL Quiz">
 						</a>
 					</div>
 				</td>
-		
+
 				<td>
 					<div class="quiz-card">
 						<a href="{{ url_for('check', type='JavaScript') }}">
-						<img src="../static/images/javascript.jpeg" alt="JavaScript" name="jscript">
+						<img src="../static/images/javascript.png" alt="JavaScript" name="jscript" title="JavaScript Quiz">
 						</a>
 					</div>
 				</td>
-				
+
 				<td>
 					<div class="quiz-card">
 						<a href="{{ url_for('check', type='Aptitude') }}">
-						<img src="../static/images/aptitude.jpeg" alt="Aptitude" name="apti">
+						<img src="../static/images/aptitude.jpeg" alt="Aptitude" name="apti" title="Aptitude">
 						</a>
 					</div>
 				</td>
